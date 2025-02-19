@@ -1,112 +1,157 @@
 "use client";
-import Header from "@/components/Header";
-import React, { useRef, useState } from "react";
-import { BsChatRightDotsFill, BsThreeDots } from "react-icons/bs";
+import React, { useContext, useState } from "react";
 import { IoInformationCircleOutline } from "react-icons/io5";
+import { useDispatch } from "react-redux";
+import { setUserData } from "../store/slices/userSlice";
+import { useRouter } from "next/navigation";
+import { userData } from "@/app/data/userData";
+import InputField from "@/components/InputField";
 
-const Home = () => {
-  const [isChecked, setIsChecked] = useState(false);
-  const [isChecked1, setIsChecked1] = useState(false);
-  const accounts = [
-    {
-      name: "***774 Depot - Daniel Mehner",
-      balance: "8.309,35 EUR",
-      creditLine: "4.229,26 EUR",
-    },
-    {
-      name: "***767 Cashkonto - Daniel Mehner",
-      balance: "1.894,90 EUR",
-      creditLine: "1.894,90 EUR",
-    },
-  ];
-  const bannerRef = useRef<HTMLDivElement>(null);
+const page = () => {
+
+  const router = useRouter();
+  const dispatch = useDispatch();
+  const [username1, setUsername1] = useState("");
+  const [password1, setPassword1] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleLogin = () => {
+    // Find the user matching the entered credentials
+    const user = userData.find(
+      (user) => user.username === username1 && user.password === password1
+    );
+
+    if (user) {
+      setErrorMessage("");
+      dispatch(
+        setUserData({
+          name: user.name,
+          username: user.username,
+          email: user.email,
+          isAuthenticated: true,
+          kundennummer: user.kundennummer,
+          geburtstag: user.geburtstag,
+          risikoklasse: user.risikoklasse,
+          steuerstatus: user.steuerstatus,
+          steuernummer: user.steuernummer,
+          berufsgruppe: user.berufsgruppe,
+          branche: user.branche,
+          beruf: user.beruf,
+          stammadresse: user.stammadresse,
+          telefon: user.telefon,
+          mobilfunk: user.mobilfunk,
+          geschaeftskontakt: user.geschaeftskontakt,
+        })
+      );
+      router.push("/Dashboard"); // Change to routing method if using React Router
+    } else {
+      setErrorMessage("Ungültige Anmeldedaten. Bitte versuchen Sie es erneut.");
+    }
+  };
+
   return (
-    <>
-      <div className="sticky">
-        <Header />
-      </div>
-      <div className="bg-[url('/images/mobbg.png')] lg:bg-[url('/images/background.png')] h-screen bg-cover bg-no-repeat lg:h-screen w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center p-4 text-[#2c2a2b]">
-          {/* Left Section */}
-          <div className="flex items-center justify-center"></div>
-          {/* Right Section */}
-          <div className="flex flex-col items-start text-left mt-5 lg:mt-16 lg:px-24">
-            <h1 className="lg:text-6xl text-4xl font-bold text-white lg:text-[#2c2a2b]">
-              Jetzt Angebot sichern
-            </h1>
-            <div>
-              <div className="hidden lg:block">
-                <h2 className="text-xl font-bold text-white lg:text-[#2c2a2b] py-5">
-                  1 Jahr für 1,90 EUR pro Order
-                </h2>
-                <p className="text-white lg:text-[#2c2a2b] font-medium text-xl ">
-                  an ausgewählten Handelsplätzen zzgl. 2 EUR
-                  Fremdkosten­pauschale. Sparpläne, ausgewählte ETFs und Fonds
-                  für 0 EUR. Jeweils zzgl. marktüblicher Spreads, Zuwendungen
-                  und Produktkosten.
-                  <span>
-                    <IoInformationCircleOutline
-                      height={40}
-                      width={40}
-                      className="text-orange-400 inline"
-                    />
-                  </span>
-                  <span className="text-orange-500 font-semibold">
-                    Angebotsbedingungen
-                  </span>
-                </p>
-              </div>
-              <div className="block lg:hidden">
-                <h2 className="text-xl font-semibold text-white py-5">
-                  Handeln Sie Aktien, Anleihen und mehr 1 Jahr für 1,90 EUR pro
-                  Order* zzgl. 2 EUR Fremdkostenpauschale, markt­üblicher
-                  Spreads und Zuwendungen.
-                  <p className="text-orange-500 font-semibold">Mehr Details</p>
-                </h2>
-              </div>
-            </div>
-            {/* Button */}
-            <div className="flex justify-center items-end py-5">
-              <button className="py-3 px-6 bg-orange-500 text-white mt-20 mx-20 lg:mt-0 lg:mx-0">
-                Depot eröffnen
-              </button>
-            </div>
-          </div>
-        </div>
+    <div className="h-screen">
+      <div className="flex flex-col justify-between p-10 w-full max-w-md mx-auto bg">
+        {/* Modal header */}
+        <h2 className="text-3xl font-bold text-[#3e515c]">
+          Login
+        </h2>
 
-        {/* Chat Icon */}
-        <div
-          ref={bannerRef}
-          className="fixed flex justify-center items-center lg:w-[33%] lg:left-1/2 lg:-translate-x-1/2 bottom-0 left-0 right-0 shadow-white bg-white px-2 py-1 mb-10"
+        {/* Login form */}
+        <form
+          className="py-5"
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleLogin();
+          }}
         >
-          <div className="text-black py-4 relative">
-            <button
-              className="absolute -top-2 right-0 lg:-right- text-3xl text-gray-600 hover:text-gray-800"
-              onClick={() =>
-                bannerRef.current && (bannerRef.current.style.display = "none")
-              }
+          <div>
+            <InputField
+              type="text"
+              name="username"
+              placeholder="Kundennr. / Benutzername"
+              value={username1}
+              onChange={(e) => setUsername1(e.target.value)}
+              className="text-xl font-semibold py-7"
+            />
+          </div>
+          <div>
+            <InputField
+              type="password"
+              name="password"
+              placeholder="Passwort"
+              value={password1}
+              onChange={(e) => setPassword1(e.target.value)}
+              className="text-xl font-semibold py-7"
+            />
+          </div>
+
+          {/* Error message */}
+          {errorMessage && (
+            <p className="text-red-500 font-semibold mb-4">{errorMessage}</p>
+          )}
+
+          {/* Forgot password link */}
+          <p className="mt-4 text-sm text-[#3e515c] font-semibold">
+            Passwort vergessen oder gesperrt?
+          </p>
+
+          {/* Session-TAN option */}
+          <div className="mt-4 flex items-center space-x-2">
+            <input
+              type="checkbox"
+              id="session-tan"
+              name="session-tan"
+              className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+            />
+            <label
+              htmlFor="session-tan"
+              className="flex flex-row justify-center items-center text-sm text-[#3e515c]"
             >
-              ×
-            </button>
-            <div className="font-semibold text-lg lg:text-xl">
-              <p className="">
-                Investitionen in Finanzinstrumente bergen{" "}
-                <span className="text-orange-600">Verlustrisiken</span>.
-                <span className="lg:hidden">Keine Anlageberatung.</span>
-              </p>
-              <p className="hidden lg:block">Keine Anlageberatung.</p>
-            </div>
+              Session-TAN verwenden
+              <span className="text-[#3e515c] px-2">
+                <IoInformationCircleOutline height={30} width={30} />
+              </span>
+            </label>
           </div>
-        </div>
 
-        <div className="fixed lg:bottom-4 lg:right-4 bottom-2 right-1 bg-orange-500 p-4 m-5 rounded-full shadow-lg hover:bg-orange-600 text-3xl">
-          <div className="text-white w-8">
-            <BsChatRightDotsFill />
+          <div>
+            {userData.some(
+              (user) =>
+                user.username === username1 && user.password === password1
+            ) ? (
+              <>
+                {/* Login button */}
+                <button
+                  type="submit"
+                  className="w-full bg-[#3e515c] text-white font-bold py-2 px-4 border[#374753] transition-all mt-5"
+                >
+                  Anmelden
+                </button>
+              </>
+            ) : (
+              <button
+                type="button"
+                className="w-full bg-[#3e515c] text-white font-bold py-2 px-4 border[#374753] transition-all mt-5 cursor-not-allowed opacity-50"
+                onClick={() =>
+                  alert(
+                    "Ungültige Anmeldedaten. Bitte geben Sie die richtigen Daten ein."
+                  )
+                }
+              >
+                Anmelden
+              </button>
+            )}
           </div>
-        </div>
+        </form>
+        <button className="w-full text-red-500 font-bold py-2 px-4 transition-all border-[0.5px] border-red-500 mb-10">
+          Depot eröffnen
+        </button>
       </div>
-    </>
-  );
-};
 
-export default Home;
+    </div>
+  )
+}
+
+export default page
+
