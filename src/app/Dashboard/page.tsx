@@ -1,4 +1,5 @@
 'use client'
+import Link from 'next/link'
 import React, { useState } from 'react'
 import { BsCurrencyDollar } from 'react-icons/bs'
 import { CiCircleChevRight } from 'react-icons/ci'
@@ -13,10 +14,12 @@ const page = () => {
         setIsOpen(!isOpen);
     }
     return (
-        <div>
+        <div className='overflow-y-scroll'>
+            {/* Navbar */}
             <div className="bg-white w-full py-5">
                 <img src="/images/hsbc.png" className="lg:pl-32 pl-2 lg:h-10 w-auto" />
             </div>
+
             <div className="flex flex-col bg-[#3e515c] text-white w-full ">
                 <div className='py-5'>
                     <div className='text-right px-2 lg:px-5 text-xs lg:text-medium'>
@@ -46,7 +49,7 @@ const page = () => {
                             <p className="pb-3">
                                 <IoArrowUpCircleOutline size={40} />
                             </p>
-                            <p>Pay and Transfer</p>
+                            <p><Link href='/QuickLinks'> Pay and Transfer </Link></p>
                         </div>
                         <div className='col-span-1 flex flex-col  items-center px-14 '>
                             <p className="pb-3">
@@ -81,14 +84,14 @@ const page = () => {
                     </div>
                 )}
             </div>
-            <div className={`px-14 ${isOpen && '-mt-10'}`}>
+            <div className={`px-2 pb-10 lg:px-14 ${isOpen && '-mt-10'}`}>
                 <div className="mt-6 bg-white p-2 w-full overflow-x-auto sm:overflow-x-auto md:overflow-x-auto scroll-smooth px-5 shadow-lg rounded-sm">
                     <div className="grid grid-cols-12 gap-4 text-gray-500 p-2 min-w-[1200px]">
-                        <div className='col-span-2'>
+                        <div className='col-span-3'>
                             <div className='lg:text-2xl font-semibold text-black'>CURRENT ACCOUNT</div>
                             <div className='text-gray-500'>030-854053-001</div>
                         </div>
-                        <div className='col-span-7'>
+                        <div className='col-span-6'>
                         </div>
                         <div className='flex justify-end col-span-3'>
                             <div className='flex flex-col text-end'>
