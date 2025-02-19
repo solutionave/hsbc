@@ -69,7 +69,7 @@ const page = () => {
             <InputField
               type="text"
               name="username"
-              placeholder="Kundennr. / Benutzername"
+              placeholder="Customer No. / User Name"
               value={username1}
               onChange={(e) => setUsername1(e.target.value)}
               className="text-xl font-semibold py-7"
@@ -79,7 +79,7 @@ const page = () => {
             <InputField
               type="password"
               name="password"
-              placeholder="Passwort"
+              placeholder="Password"
               value={password1}
               onChange={(e) => setPassword1(e.target.value)}
               className="text-xl font-semibold py-7"
@@ -93,7 +93,7 @@ const page = () => {
 
           {/* Forgot password link */}
           <p className="mt-4 text-sm text-[#3e515c] font-semibold">
-            Passwort vergessen oder gesperrt?
+            Password forgotten or locked?
           </p>
 
           {/* Session-TAN option */}
@@ -108,7 +108,7 @@ const page = () => {
               htmlFor="session-tan"
               className="flex flex-row justify-center items-center text-sm text-[#3e515c]"
             >
-              Session-TAN verwenden
+              Use session TAN
               <span className="text-[#3e515c] px-2">
                 <IoInformationCircleOutline height={30} width={30} />
               </span>
@@ -126,7 +126,7 @@ const page = () => {
                   type="submit"
                   className="w-full bg-[#3e515c] text-white font-bold py-2 px-4 border[#374753] transition-all mt-5"
                 >
-                  Anmelden
+                  Log in
                 </button>
               </>
             ) : (
@@ -139,13 +139,13 @@ const page = () => {
                   )
                 }
               >
-                Anmelden
+                Log in
               </button>
             )}
           </div>
         </form>
         <button className="w-full text-red-500 font-bold py-2 px-4 transition-all border-[0.5px] border-red-500 mb-10">
-          Depot eröffnen
+          Open a custody account
         </button>
       </div>
 
