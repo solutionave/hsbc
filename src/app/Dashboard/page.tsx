@@ -53,12 +53,6 @@ const page = () => {
                         </div>
                         <div className='col-span-1 flex flex-col  items-center px-14 '>
                             <p className="pb-3">
-                                <CiCircleChevRight size={40} />
-                            </p>
-                            <p>Apply for a personal Loan</p>
-                        </div>
-                        <div className='col-span-1 flex flex-col  items-center px-14 '>
-                            <p className="pb-3">
                                 <IoDocumentOutline size={40} />
                             </p>
                             <p>eStatements</p>
@@ -71,15 +65,21 @@ const page = () => {
                         </div>
                         <div className='col-span-1 flex flex-col items-center px-14'>
                             <p className="pb-3">
-                                <IoPersonOutline size={40} />
-                            </p>
-                            <p>Apply for YourLife and YourCare</p>
-                        </div>
-                        <div className='col-span-1 flex flex-col items-center px-14'>
-                            <p className="pb-3">
                                 <IoArrowUpCircleOutline size={40} />
                             </p>
                             <p>Global Money Account</p>
+                        </div>
+                        <div className='col-span-1 flex flex-col  items-center px-14 '>
+                            <p className="pb-3">
+                                <CiCircleChevRight size={40} />
+                            </p>
+                            <p>Apply for a personal Loan</p>
+                        </div>
+                        <div className='col-span-1 flex flex-col items-center px-14'>
+                            <p className="pb-3">
+                                <IoPersonOutline size={40} />
+                            </p>
+                            <p>Apply for YourLife and YourCare</p>
                         </div>
                     </div>
                 )}
