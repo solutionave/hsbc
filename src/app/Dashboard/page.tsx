@@ -8,6 +8,17 @@ import { HiOutlineDotsVertical } from 'react-icons/hi'
 import { IoArrowUpCircleOutline, IoDocumentOutline, IoPersonOutline } from 'react-icons/io5'
 import { SiCashapp } from 'react-icons/si'
 import { TbCreditCardPay } from 'react-icons/tb'
+import { FaMoneyBillTransfer } from "react-icons/fa6";
+import { IoDocumentText } from "react-icons/io5";
+import { FaSackDollar } from "react-icons/fa6";
+import { IoMdGlobe } from "react-icons/io";
+import { TbCashRegister } from "react-icons/tb";
+import { FaPersonShelter } from "react-icons/fa6";
+
+
+
+
+
 
 const page = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -27,7 +38,7 @@ const page = () => {
                         Last logged on 18/02/2025 at 1:24:26 PM
                     </div>
                     <div className='px-2 lg:px-20'>
-                        <h1 className="text-3xl font-semibold pb-3"></h1>
+                        <h1 className="text-3xl font-semibold pb-3">Good Morning</h1>
                         <p>
                             You got <span className="underline">2 new messages.</span>
                         </p>
@@ -48,37 +59,37 @@ const page = () => {
                     <div className='grid grid-cols-2 lg:grid-cols-7 bg-[#374753] py-8 text-white gap-5 text-center'>
                         <div className='col-span-1 flex flex-col items-center px-14 '>
                             <p className="pb-3">
-                                <TbCreditCardPay size={40} />
+                                <FaMoneyBillTransfer  size={40} />
                             </p>
                             <p><Link href='/QuickLinks'> Pay and Transfer </Link></p>
                         </div>
                         <div className='col-span-1 flex flex-col  items-center px-14 '>
                             <p className="pb-3">
-                                <IoDocumentOutline size={40} />
+                                <IoDocumentText size={40} />
                             </p>
                             <p>eStatements</p>
                         </div>
                         <div className='col-span-1 flex flex-col items-center px-14 '>
                             <p className="pb-3">
-                                <BsCurrencyDollar size={40} />
+                                <FaSackDollar size={40} />
                             </p>
                             <p>Your investments</p>
                         </div>
                         <div className='col-span-1 flex flex-col items-center px-14'>
                             <p className="pb-3">
-                                <FaMoneyCheckAlt size={40} />
+                                <IoMdGlobe size={40} />
                             </p>
                             <p>Global Money Account</p>
                         </div>
                         <div className='col-span-1 flex flex-col  items-center px-14 '>
                             <p className="pb-3">
-                                <SiCashapp size={40} />
+                                <TbCashRegister size={40} />
                             </p>
                             <p>Apply for a personal Loan</p>
                         </div>
                         <div className='col-span-1 flex flex-col items-center px-14'>
                             <p className="pb-3">
-                                <IoPersonOutline size={40} />
+                                <FaPersonShelter  size={40} />
                             </p>
                             <p>Apply for YourLife and YourCare</p>
                         </div>
@@ -90,18 +101,18 @@ const page = () => {
                     <div className="grid grid-cols-12 gap-4 text-gray-500 p-2 min-w-[1200px]">
                         <div className='col-span-3'>
                             <div className='lg:text-2xl font-semibold text-black'>CURRENT ACCOUNT</div>
-                            <div className='text-gray-500'>030-854053-001</div>
+                            <div className='text-gray-500'>143-054059-951</div>
                         </div>
                         <div className='col-span-6'>
                         </div>
                         <div className='flex justify-end col-span-3'>
                             <div className='flex flex-col text-end'>
                                 <div className='flex justify-end items-center gap-2'>
-                                    <p className='lg:text-xl font-semibold text-black'>331.71</p>
+                                    <p className='lg:text-xl font-semibold text-black'>445.11</p>
                                     <p className='text-gray-500'>AED</p>
                                 </div>
                                 <div className='text-gray-500'>
-                                    Current Balance: 331.79 AED
+                                    Available Balance: 491.79 AED
                                 </div>
                             </div>
                             <div className="px-2 -mt-8 h-full border-r border-gray-300"></div>
