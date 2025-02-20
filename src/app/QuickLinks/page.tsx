@@ -6,23 +6,23 @@ const Quicklinks = () => {
     return (
         <div>
             {/* Navbar */}
-            <div className="flex lg:justify-between lg:items-center bg-white w-full py-5 shadow-lg gap-5">
+            <div className="flex lg:justify-between lg:items-center bg-white w-full py-5 shadow-sm gap-5">
                 <div>
                     <img src="/images/hsbc.png" className="pl-2 h-10 w-auto" />
                 </div>
                 <div className='flex justify-between lg:gap-5 lg:px-5'>
                     <div className='font-bold text-xs lg:text-xl px-1'>
-                        Internet <p>Banking</p>
+                        Online <p>Banking</p>
                     </div>
                     <div className="w-[1px] h-10 bg-gray-300"></div>
                     <div className='px-1'>
-                        <p className='font-bold lg:text-xl text-xs'>Wealth Dashboard</p>
-                        <p className='text-gray-500 text-xs lg:text-base'>Holding and performance</p>
+                        <p className='font-bold lg:text-xl text-xs'>Investment Dashboard</p>
+                        <p className='text-gray-500 text-xs lg:text-base'>Assets and Efficiency</p>
                     </div>
                     <div className="w-[2px] h-10 bg-gray-300"></div>
                     <div className='px-1'>
-                        <p className='font-bold text-xs lg:text-xl'>HSBC WorldTrader</p>
-                        <p className='text-gray-500 text-xs lg:text-base'>Secure token required to trade</p>
+                        <p className='font-bold text-xs lg:text-xl'>HSBC Global Trader</p>
+                        <p className='text-gray-500 text-xs lg:text-base'>Secure authentication required for trading</p>
                     </div>
                 </div>
             </div>
@@ -38,10 +38,8 @@ const Quicklinks = () => {
 
                         <div className="grid grid-cols-12 gap-4 text-gray-500 px-2 min-w-[1200px] rounded-sm">
                             <div className="col-span-2 bg-gray-300 py-2 text-black text-center border-t border-red-700">My Portfolio</div>
-                            <div className="col-span-10 flex bg-gray-300 py-2 text-black text-center">
-                                <p className='px-10 lg:px-14'>My Holdings</p>
-                                <p>My Account</p>
-                            </div>
+                            <div className="col-span-2 bg-gray-300 py-2 text-black text-center">My Holdings</div>
+                            <div className="col-span-2 bg-gray-300 py-2 text-black text-center">My Account</div>
                         </div>
                         <div className="grid grid-cols-12 gap-4 text-gray-500 px-2 min-w-[1200px] rounded-sm">
 

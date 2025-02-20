@@ -3,9 +3,11 @@ import Link from 'next/link'
 import React, { useState } from 'react'
 import { BsCurrencyDollar } from 'react-icons/bs'
 import { CiCircleChevRight } from 'react-icons/ci'
-import { FaAngleDown, FaAngleUp } from 'react-icons/fa'
+import { FaAngleDown, FaAngleUp, FaMoneyCheckAlt } from 'react-icons/fa'
 import { HiOutlineDotsVertical } from 'react-icons/hi'
 import { IoArrowUpCircleOutline, IoDocumentOutline, IoPersonOutline } from 'react-icons/io5'
+import { SiCashapp } from 'react-icons/si'
+import { TbCreditCardPay } from 'react-icons/tb'
 
 const page = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -19,16 +21,15 @@ const page = () => {
             <div className="bg-white w-full py-5">
                 <img src="/images/hsbc.png" className="lg:pl-32 pl-2 lg:h-10 w-auto" />
             </div>
-
             <div className="flex flex-col bg-[#3e515c] text-white w-full ">
                 <div className='py-5'>
                     <div className='text-right px-2 lg:px-5 text-xs lg:text-medium'>
                         Last logged on 18/02/2025 at 1:24:26 PM
                     </div>
                     <div className='px-2 lg:px-20'>
-                        <h1 className="text-3xl font-semibold pb-3">Good Evening</h1>
+                        <h1 className="text-3xl font-semibold pb-3"></h1>
                         <p>
-                            You have <span className="underline">2 new messages.</span>
+                            You got <span className="underline">2 new messages.</span>
                         </p>
                     </div>
                 </div>
@@ -47,7 +48,7 @@ const page = () => {
                     <div className='grid grid-cols-2 lg:grid-cols-7 bg-[#374753] py-8 text-white gap-5 text-center'>
                         <div className='col-span-1 flex flex-col items-center px-14 '>
                             <p className="pb-3">
-                                <IoArrowUpCircleOutline size={40} />
+                                <TbCreditCardPay size={40} />
                             </p>
                             <p><Link href='/QuickLinks'> Pay and Transfer </Link></p>
                         </div>
@@ -65,13 +66,13 @@ const page = () => {
                         </div>
                         <div className='col-span-1 flex flex-col items-center px-14'>
                             <p className="pb-3">
-                                <IoArrowUpCircleOutline size={40} />
+                                <FaMoneyCheckAlt size={40} />
                             </p>
                             <p>Global Money Account</p>
                         </div>
                         <div className='col-span-1 flex flex-col  items-center px-14 '>
                             <p className="pb-3">
-                                <CiCircleChevRight size={40} />
+                                <SiCashapp size={40} />
                             </p>
                             <p>Apply for a personal Loan</p>
                         </div>
@@ -100,7 +101,7 @@ const page = () => {
                                     <p className='text-gray-500'>AED</p>
                                 </div>
                                 <div className='text-gray-500'>
-                                    Available Balance: 331.79 AED
+                                    Current Balance: 331.79 AED
                                 </div>
                             </div>
                             <div className="px-2 -mt-8 h-full border-r border-gray-300"></div>
