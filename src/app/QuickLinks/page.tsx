@@ -1,8 +1,21 @@
-import React from 'react'
+'use client'
+import React, { useEffect } from 'react'
 import { FaAngleDown } from 'react-icons/fa'
 import { MdQuestionMark } from "react-icons/md";
+import { ToastContainer, toast } from 'react-toastify';
 
 const Quicklinks = () => {
+    const notify = () => toast(
+        <span>
+            Please visit{" "}
+            <a href="https://www.hsbc.com" target="_blank" rel="noopener noreferrer" className="text-blue-500 underline px-1">
+                HSBC
+            </a>
+        </span>, { autoClose: false }
+    );
+    useEffect(() => {
+        notify()
+    }, [])
     return (
         <div>
             {/* Navbar */}
@@ -47,7 +60,7 @@ const Quicklinks = () => {
                         <div className="grid grid-cols-12 gap-4 justify between text-gray-500 p-2 min-w-[1200px] rounded-sm">
                             <div className="col-span-3 flex py-2 text-black text-center bg-pink-4000">
                                 <p>Net Worth</p>
-                                <p className='font-semibold px-2'>AED 441.18</p>
+                                <p className='font-semibold px-2'>EUR 441.18</p>
                             </div>
                             <div className='col-span-6'></div>
                             <div className="col-span-3 py-2 text-black flex justify-end">
@@ -60,13 +73,13 @@ const Quicklinks = () => {
                                 <p className='font-semibold lg:text-lg'>Customize View: </p>
                                 <div className='p-2 border-gray-300 border-2 bg-white font-medium text-start'>
                                     <div>
-                                        <p className='flex items-center font-semibold lg:text-lg gap-5'>ACCOUNTS <p className='text-red-500'><FaAngleDown /></p></p>
+                                        <div className='flex items-center font-semibold lg:text-lg gap-5'>ACCOUNTS <p className='text-red-500'><FaAngleDown /></p></div>
                                         <p className='font-serif'>All Client</p>
                                     </div>
                                 </div>
                                 <div className='p-2 border-gray-300 border-2 bg-white font-medium text-start'>
                                     <div>
-                                        <p className='flex items-center font-semibold lg:text-lg gap-5'>View Assets In: <p className='text-red-500'><FaAngleDown /></p></p>
+                                        <div className='flex items-center font-semibold lg:text-lg gap-5'>View Assets In: <p className='text-red-500'><FaAngleDown /></p></div>
                                         <p className='font-serif'>Stated Currency</p>
                                     </div>
                                 </div>
@@ -113,6 +126,7 @@ const Quicklinks = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     )
 }
