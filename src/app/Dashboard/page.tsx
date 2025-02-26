@@ -165,9 +165,7 @@ const page = () => {
                 </div>
             </div>
             <ToastContainer />
-            <NewsViews/>
-            <Career/>
-            <Footer/>
+            
         </div>
     )
 }
