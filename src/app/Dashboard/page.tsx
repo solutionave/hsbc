@@ -15,6 +15,9 @@ import { IoMdGlobe } from "react-icons/io";
 import { TbCashRegister } from "react-icons/tb";
 import { FaPersonShelter } from "react-icons/fa6";
 import { ToastContainer, toast } from 'react-toastify';
+import Footer from '@/components/Footer'
+import NewsViews from '@/components/NewsViews'
+import Career from '@/components/Career'
 const page = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [showTransactions, setShowTransactions] = useState(false);
@@ -162,6 +165,9 @@ const page = () => {
                 </div>
             </div>
             <ToastContainer />
+            <NewsViews/>
+            <Career/>
+            <Footer/>
         </div>
     )
 }
