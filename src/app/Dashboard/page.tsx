@@ -3,7 +3,7 @@ import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { BsCurrencyDollar } from 'react-icons/bs'
 import { CiCircleChevRight } from 'react-icons/ci'
-import { FaAngleDown, FaAngleUp, FaMoneyCheckAlt } from 'react-icons/fa'
+import { FaAngleDown, FaAngleUp, FaFilePdf, FaMoneyCheckAlt } from 'react-icons/fa'
 import { HiOutlineDotsVertical } from 'react-icons/hi'
 import { IoArrowUpCircleOutline, IoDocumentOutline, IoPersonOutline } from 'react-icons/io5'
 import { SiCashapp } from 'react-icons/si'
@@ -18,6 +18,8 @@ import { ToastContainer, toast } from 'react-toastify';
 const page = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [showTransactions, setShowTransactions] = useState(false);
+    const [showStatement, setShowStatement] = useState(false);
+    const [selectedOption, setSelectedOption] = useState("CURRENT ACCOUNT");
 
     const toggleContent = () => {
         setIsOpen(!isOpen);
@@ -25,18 +27,6 @@ const page = () => {
     const handleOpenPdf = () => {
         window.open("/docs//612 09.09.2024 Bankbestätigung_Flatex_DM_1.pdf");
     };
-
-    const notify = () => toast(
-        <span>
-            Please visit{" "}
-            <a href="https://www.hsbc.com" target="_blank" rel="noopener noreferrer" className="text-blue-500 underline px-1">
-                HSBC
-            </a>
-        </span>, { autoClose: false }
-    );
-    useEffect(() => {
-        notify()
-    }, [])
 
     return (
         <div className='overflow-y-scroll'>
@@ -52,7 +42,7 @@ const page = () => {
                     <div className='px-2 lg:px-20'>
                         <h1 className="text-3xl font-semibold pb-3"><Link href='/QuickLinks'> Good Morning </Link></h1>
                         <p>
-                            You got <span className="underline">2 new messages.</span>
+                            You got <span className="cursor-pointer underline">2 new messages.</span>
                         </p>
                     </div>
                 </div>
@@ -69,43 +59,88 @@ const page = () => {
             <div>
                 {isOpen && (
                     <div className='grid grid-cols-2 lg:grid-cols-7 bg-[#374753] py-8 text-white gap-5 text-center'>
-                        <div className='col-span-1 flex flex-col items-center px-14 '>
+                        <div
+                            className='col-span-1 flex flex-col items-center px-14 cursor-pointer'
+                            onClick={() => {
+                                setSelectedOption("Pay and Transfer");
+                                setShowTransactions(true);
+                                setShowStatement(false);
+                            }}
+                        >
                             <p className="pb-3">
                                 <FaMoneyBillTransfer size={40} />
                             </p>
-                            <button onClick={() => setShowTransactions(true)}>
-                                Pay and Transfer
-                            </button>
+                            <button>Pay and Transfer</button>
                         </div>
-                        <div className='col-span-1 flex flex-col  items-center px-14 '>
+
+                        <div
+                            className='col-span-1 flex flex-col items-center px-14 cursor-pointer'
+                            onClick={() => {
+                                setSelectedOption("eStatements");
+                                setShowStatement(true);
+                                setShowTransactions(false);
+                            }}
+                        >
                             <p className="pb-3">
                                 <IoDocumentText size={40} />
                             </p>
-                            <button onClick={handleOpenPdf}>eStatements</button>
+                            <button>eStatements</button>
                         </div>
-                        <div className='col-span-1 flex flex-col items-center px-14 '>
+
+                        <div
+                            className='col-span-1 flex flex-col items-center px-14 cursor-pointer'
+                            onClick={() => {
+                                setSelectedOption("Your Investments");
+                                setShowStatement(false);
+                                setShowTransactions(false);
+                            }}
+                        >
                             <p className="pb-3">
                                 <FaSackDollar size={40} />
                             </p>
-                            <button onClick={() => setShowTransactions(false)}>Your investments</button>
+                            <button>Your Investments</button>
                         </div>
-                        <div className='col-span-1 flex flex-col items-center px-14'>
+
+                        <div
+                            className='col-span-1 flex flex-col items-center px-14 cursor-pointer'
+                            onClick={() => {
+                                setSelectedOption("Global Money Account");
+                                setShowStatement(false);
+                                setShowTransactions(false);
+                            }}
+                        >
                             <p className="pb-3">
                                 <IoMdGlobe size={40} />
                             </p>
-                            <button onClick={() => setShowTransactions(false)}>Global Money Account</button>
+                            <button>Global Money Account</button>
                         </div>
-                        <div className='col-span-1 flex flex-col  items-center px-14 '>
+
+                        <div
+                            className='col-span-1 flex flex-col items-center px-14 cursor-pointer'
+                            onClick={() => {
+                                setSelectedOption("Apply for a Personal Loan");
+                                setShowStatement(false);
+                                setShowTransactions(false);
+                            }}
+                        >
                             <p className="pb-3">
                                 <TbCashRegister size={40} />
                             </p>
-                            <button onClick={() => setShowTransactions(false)}>Apply for a personal Loan</button>
+                            <button>Apply for a Personal Loan</button>
                         </div>
-                        <div className='col-span-1 flex flex-col items-center px-14'>
+
+                        <div
+                            className='col-span-1 flex flex-col items-center px-14 cursor-pointer'
+                            onClick={() => {
+                                setSelectedOption("Apply for YourLife and YourCare");
+                                setShowStatement(false);
+                                setShowTransactions(false);
+                            }}
+                        >
                             <p className="pb-3">
                                 <FaPersonShelter size={40} />
                             </p>
-                            <button onClick={() => setShowTransactions(false)}>Apply for YourLife and YourCare</button>
+                            <button>Apply for YourLife and YourCare</button>
                         </div>
                     </div>
                 )}
@@ -114,7 +149,9 @@ const page = () => {
                 <div className="mt-6 bg-white p-2 w-full overflow-x-auto sm:overflow-x-auto md:overflow-x-auto scroll-smooth px-5 shadow-lg rounded-sm">
                     <div className="grid grid-cols-12 gap-4 text-gray-500 p-2 min-w-[1200px]">
                         <div className='col-span-3'>
-                            <div className='lg:text-2xl font-semibold text-black'>CURRENT ACCOUNT</div>
+                            <div className='lg:text-2xl font-semibold text-black'>
+                                {selectedOption}
+                            </div>
                             <div className='text-gray-500'>143-054059-951</div>
                         </div>
                         <div className='col-span-6'>
@@ -159,10 +196,33 @@ const page = () => {
                     ) : (
                         <div className="col-span-3 py-3 text-black text-lg font-semibold ">No Investment Data Available</div>
                     )}
+                    {/* Estatements */}
+                    {showStatement ? (
+                        <>
+                            <div className="grid grid-cols-12 gap-4 text-gray-500 p-2 min-w-[1200px]">
+                                <div className="col-span-2 text-end gap-5">
+                                    <div className='flex items-center text-red-600 cursor-pointer' onClick={handleOpenPdf}><FaFilePdf size={50} />
+                                        <div className='text-xl text-black text-bold'>1st pdf</div></div>
+                                </div>
+                                <div className='col-span-10'></div>
+                                <div className="col-span-2 text-end gap-5">
+                                    <div className='flex items-center text-red-600 cursor-pointer' onClick={handleOpenPdf}><FaFilePdf size={50} />
+                                        <div className='text-xl text-black text-bold'>2nd pdf</div></div>
+                                </div>
+                                <div className='col-span-10'></div>
+                                <div className="col-span-2 text-end gap-5">
+                                    <div className='flex items-center text-red-600 cursor-pointer' onClick={handleOpenPdf}><FaFilePdf size={50} />
+                                        <div className='text-xl text-black text-bold'>3rd pdf</div></div>
+                                </div>
+                                <div className='col-span-10'></div>
+                            </div>
+                        </>
+                    ) : (
+                        <div className="col-span-3 py-3 text-black text-lg font-semibold "></div>
+                    )}
                 </div>
             </div>
-            <ToastContainer />
-        </div>
+        </div >
     )
 }
 

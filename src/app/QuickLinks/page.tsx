@@ -86,8 +86,6 @@ const Quicklinks = () => {
                             </div>
                             <div className='col-span-6'></div>
                         </div>
-
-
                         <div className="grid grid-cols-8 text-white bg-[#171e23] px-2 py-3 min-w-[1200px] rounded-sm gap-10">
                             <div className="col-span-2 flex justify-center items-center gap-4">
                                 <div>
