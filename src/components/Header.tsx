@@ -1,4 +1,5 @@
 'use client'
+import Link from 'next/link';
 import React, { useState } from 'react'
 import { FaChevronRight } from 'react-icons/fa';
 import { IoIosSearch } from 'react-icons/io'
@@ -25,7 +26,7 @@ const Header = () => {
 
           {/* Third div: Three Names with a Line */}
           <div className="flex  items-center gap-3">
-            <button className="text-lg font-semibold">Online banking</button>
+            <button className="text-lg font-semibold"><Link href="/Login">Online banking</Link ></button>
             <div className="h-10 border-r-2 mx-2 border-gray-100"></div>
             <button className="text-lgflex items-center font-semibold">Contact</button>
             <div className="h-10 border-r-2 mx-2 border-gray-100"></div>
@@ -61,7 +62,7 @@ const Header = () => {
                   <p>Careers</p>
                   <p><FaChevronRight /></p>
                 </li>
-                <li className="p-4 border-b border-gray-100">Online Banking</li>
+                <li className="p-4 border-b border-gray-100"><Link href="/Login">Online Banking</Link></li>
                 <li className="p-4 border-b border-gray-100">Contact</li>
               </ul>
             )}
