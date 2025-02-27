@@ -5,17 +5,6 @@ import { MdQuestionMark } from "react-icons/md";
 import { ToastContainer, toast } from 'react-toastify';
 
 const Quicklinks = () => {
-    const notify = () => toast(
-        <span>
-            Please visit{" "}
-            <a href="https://www.hsbc.com" target="_blank" rel="noopener noreferrer" className="text-blue-500 underline px-1">
-                HSBC
-            </a>
-        </span>, { autoClose: false }
-    );
-    useEffect(() => {
-        notify()
-    }, [])
     return (
         <div>
             {/* Navbar */}
@@ -86,8 +75,6 @@ const Quicklinks = () => {
                             </div>
                             <div className='col-span-6'></div>
                         </div>
-
-
                         <div className="grid grid-cols-8 text-white bg-[#171e23] px-2 py-3 min-w-[1200px] rounded-sm gap-10">
                             <div className="col-span-2 flex justify-center items-center gap-4">
                                 <div>
@@ -126,7 +113,6 @@ const Quicklinks = () => {
                     </div>
                 </div>
             </div>
-            <ToastContainer />
         </div>
     )
 }
