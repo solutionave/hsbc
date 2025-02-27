@@ -8,7 +8,7 @@ import React from 'react';
 
 const App = () => {
   return (
-    <div className='flex-1 bg-black'>
+    <div className='lg:flex-1 bg-black'>
       <div>
         <Header />
       </div>

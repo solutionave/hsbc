@@ -35,7 +35,7 @@ const Header = () => {
         </div>
       </div>
 
-      <div className='lg:hidden'>
+      <div className='lg:hidden bg-white py-1'>
         <div className='flex justify-between itens-center px-5'>
           <div className='flex items-center'>
             <button

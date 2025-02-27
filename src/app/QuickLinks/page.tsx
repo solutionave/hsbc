@@ -39,9 +39,9 @@ const Quicklinks = () => {
                         </div>
 
                         <div className="grid grid-cols-12 gap-4 text-gray-500 px-2 min-w-[1200px] rounded-sm">
-                            <div className="col-span-2 bg-gray-300 py-2 text-black text-center border-t border-red-700">My Portfolio</div>
-                            <div className="col-span-2 bg-gray-300 py-2 text-black text-center">My Holdings</div>
-                            <div className="col-span-2 bg-gray-300 py-2 text-black text-center">My Account</div>
+                            <div className="col-span-2 bg-gray-300 py-2 text-black text-center border-t border-red-700 cursor-pointer">My Portfolio</div>
+                            <div className="col-span-2 bg-gray-300 py-2 text-black text-center cursor-pointer">My Holdings</div>
+                            <div className="col-span-2 bg-gray-300 py-2 text-black text-center cursor-pointer">My Account</div>
                         </div>
                         <div className="grid grid-cols-12 gap-4 text-gray-500 px-2 min-w-[1200px] rounded-sm">
 
