@@ -2,8 +2,8 @@ import React from "react";
 import { FaChevronRight } from "react-icons/fa";
 const NewsViews = () => {
     return (
-        <div className="max-w-6xl mx-auto py-10">
-            <h2 className="text-5xl font-light font-sans text-center mb-12">News and Views</h2>
+        <div className="max-w-6xl mx-auto py-7">
+            <h2 className="text-5xl font-extralight text-center mb-12">News and Views</h2>
             <div className="grid md:grid-cols-3 gap-6 p-8">
                 <div className="bg-gray-100 shadow-lg rounded-lg overflow-hidden ">
                     <img
@@ -13,7 +13,8 @@ const NewsViews = () => {
                     />
                     <div className="p-7">
                         <h3 className="text-4xl font-extralight">
-                            We’re the World’s Best Trade Finance Bank                        </h3>
+                            We’re the World’s Best Trade Finance Bank
+                        </h3>
                         <p className="text-black font-normal text-lg py-10">
                             Businesses have had their say – and we’re #1 in the Euromoney Trade Finance Survey once again.
                         </p>

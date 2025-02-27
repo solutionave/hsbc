@@ -1,12 +1,15 @@
 
 import Cards from '@/components/Cards';
+import Career from '@/components/Career';
+import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import Hightlights from '@/components/Hightlights';
+import NewsViews from '@/components/NewsViews';
 import React from 'react';
 
 const App = () => {
     return (
-        <div>
+        <div className='flex-1 bg-black'>
             <div>
                 <Header />
             </div>
@@ -17,11 +20,20 @@ const App = () => {
                         <button className='bg-transparent border border-white font-semibold text-white mt-10 px-20 lg:px-5 py-2 text-lg '>Results Overview</button>
                     </div>
                 </div>
-                <div className='mt-80'>
+                <div className='-mt-40'>
                     <Cards />
                 </div>
                 <div className='mt-10'>
                     <Hightlights />
+                </div>
+                <div>
+                    <NewsViews />
+                </div>
+                <div>
+                    <Career />
+                </div>
+                <div>
+                    <Footer />
                 </div>
             </div>
         </div>
