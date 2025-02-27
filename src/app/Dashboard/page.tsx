@@ -28,7 +28,13 @@ const page = () => {
         setIsOpen(!isOpen);
     }
     const handleOpenPdf = () => {
-        window.open("/docs//612 09.09.2024 Bankbestätigung_Flatex_DM_1.pdf");
+        window.open("/docs//198188_586_Depotwertveraenderung_20250220 (1).pdf ");
+    };
+    const handleOpenPdf1 = () => {
+        window.open("/docs//198188_586_Kontosaldenveraenderung_20250220.pdf");
+    };
+    const handleOpenPdf2 = () => {
+        window.open("/docs//198188_586_Depotwertveraenderung_20250220.pdf");
     };
 
     return (
@@ -151,13 +157,13 @@ const page = () => {
             <div className={`px-2 pb-10 lg:px-14 ${isOpen && '-mt-10'}`}>
                 <div className="mt-6 bg-white p-2 w-full overflow-x-auto sm:overflow-x-auto md:overflow-x-auto scroll-smooth px-5 shadow-lg rounded-sm">
                     <div className="grid grid-cols-12 gap-4 text-gray-500 p-2 min-w-[1200px]">
-                        <div className='col-span-3'>
+                        <div className='col-span-4'>
                             <div className='lg:text-2xl font-semibold text-black'>
                                 {selectedOption}
                             </div>
                             <div className='text-gray-500'>143-054059-951</div>
                         </div>
-                        <div className='col-span-6'>
+                        <div className='col-span-5'>
                         </div>
                         <div className='flex justify-end col-span-3'>
                             <div className='flex flex-col text-end'>
@@ -175,6 +181,32 @@ const page = () => {
                             </div>
                         </div>
                     </div>
+                    {/* Estatements */}
+                    {showStatement ? (
+                        <>
+                            <div className="grid grid-cols-12 gap-4 text-gray-500 p-2 min-w-[1200px]">
+                                <div className="col-span-6 text-end gap-5">
+                                    <div className='flex items-center text-red-600 cursor-pointer' onClick={handleOpenPdf}><FaFilePdf size={50} />
+                                        <div className='text-xl text-black text-bold'>Depotwertveraenderung</div></div>
+                                </div>
+                                <div className='col-span-10'></div>
+                                <div className="col-span-6 text-end gap-5">
+                                    <div className='flex items-center text-red-600 cursor-pointer' onClick={handleOpenPdf1}><FaFilePdf size={50} />
+                                        <div className='text-xl text-black text-bold'>Kontosaldenveraenderung</div>
+                                    </div>
+                                </div>
+                                <div className='col-span-10'></div>
+                                <div className="col-span-6 text-end gap-5">
+                                    <div className='flex items-center text-red-600 cursor-pointer' onClick={handleOpenPdf2}><FaFilePdf size={50} />
+                                        <div className='text-xl text-black text-bold'>Depotwertveraenderung</div>
+                                    </div>
+                                </div>
+                                <div className='col-span-10'></div>
+                            </div>
+                        </>
+                    ) : (
+                        <div className="col-span-3 py-3 text-black text-lg font-semibold "></div>
+                    )}
                     {showTransactions ? (
                         <>
                             <div className="grid grid-cols-12 gap-4 text-gray-500 p-2 min-w-[1200px]">
@@ -199,30 +231,7 @@ const page = () => {
                     ) : (
                         <div className="col-span-3 py-3 text-black text-lg font-semibold ">No Investment Data Available</div>
                     )}
-                    {/* Estatements */}
-                    {showStatement ? (
-                        <>
-                            <div className="grid grid-cols-12 gap-4 text-gray-500 p-2 min-w-[1200px]">
-                                <div className="col-span-2 text-end gap-5">
-                                    <div className='flex items-center text-red-600 cursor-pointer' onClick={handleOpenPdf}><FaFilePdf size={50} />
-                                        <div className='text-xl text-black text-bold'>1st pdf</div></div>
-                                </div>
-                                <div className='col-span-10'></div>
-                                <div className="col-span-2 text-end gap-5">
-                                    <div className='flex items-center text-red-600 cursor-pointer' onClick={handleOpenPdf}><FaFilePdf size={50} />
-                                        <div className='text-xl text-black text-bold'>2nd pdf</div></div>
-                                </div>
-                                <div className='col-span-10'></div>
-                                <div className="col-span-2 text-end gap-5">
-                                    <div className='flex items-center text-red-600 cursor-pointer' onClick={handleOpenPdf}><FaFilePdf size={50} />
-                                        <div className='text-xl text-black text-bold'>3rd pdf</div></div>
-                                </div>
-                                <div className='col-span-10'></div>
-                            </div>
-                        </>
-                    ) : (
-                        <div className="col-span-3 py-3 text-black text-lg font-semibold "></div>
-                    )}
+
                 </div>
             </div>
             <ToastContainer />
