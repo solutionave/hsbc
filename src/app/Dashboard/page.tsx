@@ -165,21 +165,23 @@ const page = () => {
                         </div>
                         <div className='col-span-5'>
                         </div>
-                        <div className='flex justify-end col-span-3'>
-                            <div className='flex flex-col text-end'>
-                                <div className='flex justify-end items-center gap-2'>
-                                    <p className='lg:text-xl font-semibold text-black'>445.11</p>
-                                    <p className='text-gray-500'>EUR</p>
+                        {!showStatement && (
+                            <div className='flex justify-end col-span-3'>
+                                <div className='flex flex-col text-end'>
+                                    <div className='flex justify-end items-center gap-2'>
+                                        <p className='lg:text-xl font-semibold text-black'>445.11</p>
+                                        <p className='text-gray-500'>EUR</p>
+                                    </div>
+                                    <div className='text-gray-500'>
+                                        Available Balance: 491.79 EUR
+                                    </div>
                                 </div>
-                                <div className='text-gray-500'>
-                                    Available Balance: 491.79 EUR
+                                <div className="px-2 -mt-8 h-full border-r border-gray-300"></div>
+                                <div className='text-black'>
+                                    <HiOutlineDotsVertical size={30} />
                                 </div>
-                            </div>
-                            <div className="px-2 -mt-8 h-full border-r border-gray-300"></div>
-                            <div className='text-black'>
-                                <HiOutlineDotsVertical size={30} />
-                            </div>
-                        </div>
+                            </div>)
+                        }
                     </div>
                     {/* Estatements */}
                     {showStatement ? (
@@ -228,10 +230,11 @@ const page = () => {
                                 <div className="flex justify-end col-span-2 px-10">3,393.50</div>
                             </div>
                         </>
-                    ) : (
-                        <div className="col-span-3 py-3 text-black text-lg font-semibold ">No Investment Data Available</div>
+                    ) : showStatement ? null : (
+                        <div className="col-span-3 py-3 text-black text-lg font-semibold ">
+                            No Investment Data Available
+                        </div>
                     )}
-
                 </div>
             </div>
             <ToastContainer />
