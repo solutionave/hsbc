@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
 const Career = () => {
   return (
-    <div className="relative w-full max-w-6xl mx-auto mb-40">
+    <div className="relative w-full md:max-w-[72%] mx-auto mb-40">
       <img
         src="../images/Career1.png"
         alt="Career"
@@ -14,7 +14,8 @@ const Career = () => {
         </h2>
         <p className="py-8 text-md font-normal  text-center tracking-wide ">
           Discover our student and graduate opportunities, from internships and
-          graduate programmes to work experience, apprenticeships and entry-level positions.
+          graduate programmes to work experience, apprenticeships and
+          entry-level positions.
         </p>
         <button className="mt-4 px-12 py-4 border text-white font-medium hover:bg-slate-600 ">
           Students and graduates
