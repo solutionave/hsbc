@@ -12,9 +12,9 @@ const App = () => {
       <div>
         <Header />
       </div>
-      <div className="bg-[url('/images/background.png')] h-full bg-cover bg-no-repeat lg:h-screen w-full">
-        <div className="gap-4 items-center p-4 text-[#2c2a2b]">
-          <div className="flex flex-col justify-center items-center mt-40">
+      <div className="bg-[url('/images/background.png')] h-full bg-cover bg-no-repeat md:h-screen w-full">
+        <div className="flex justify-center gap-4 items-center p-4">
+          <div className="flex flex-col justify-center items-center mt-40 inset-0 bg-black bg-opacity-60 md:w-[60%] py-16">
             <h1 className="font-thin text-center text-white text-3xl lg:text-6xl">
               Our Performance in 1Q 2025
             </h1>
